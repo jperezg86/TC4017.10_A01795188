@@ -1,5 +1,7 @@
 """Herramienta CLI para convertir números a binario y hexadecimal."""
 
+# pylint: disable=duplicate-code
+
 # pylint: disable=invalid-name
 
 from __future__ import annotations
@@ -65,7 +67,10 @@ def a_binario(numero: int) -> str:
 
 
 def a_hexadecimal(numero: int) -> str:
-    """Convierte a hexadecimal estilo DEC2HEX (dos complementos para negativos)."""
+    """Convierte a hexadecimal estilo DEC2HEX.
+
+    Usa complemento a dos de 40 bits para valores negativos.
+    """
 
     if numero < 0:
         complemento_dos = (1 << 40) + numero
