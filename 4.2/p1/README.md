@@ -24,3 +24,6 @@ python -m unittest discover -s 4.2/p1/test -p "test_computeStatistics.py"
 ## Notas
 - Los valores inválidos en los archivos se reportan por stderr y se omiten.
 - Si un archivo no tiene datos válidos, se marca `#N/A` en la columna correspondiente.
+
+## Evidencias
+Las evidencias (Screenshoots) se encuentran en la carpeta results/screenshots"
