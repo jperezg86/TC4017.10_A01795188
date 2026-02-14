@@ -1,0 +1,4 @@
+[
+  {"items": ["apple", {"title": "banana", "quantity": 3}]},
+  {"items": [{"title": "bread", "quantity": 1}, "milk"]}
+]

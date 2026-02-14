@@ -1,0 +1,7 @@
+[
+  {"title": "chair", "price": 899},
+  {"title": "desk", "price": "invalid"},
+  {"title": "", "price": 100},
+  {"price": 500},
+  "bad-row"
+]

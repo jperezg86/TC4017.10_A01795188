@@ -1,0 +1,6 @@
+[
+  {"items": ["chair", {"title": "desk", "quantity": 1}]},
+  {"items": "invalid-items"},
+  {"items": [42, {"title": "chair", "quantity": "two"}]},
+  "bad-sale-row"
+]

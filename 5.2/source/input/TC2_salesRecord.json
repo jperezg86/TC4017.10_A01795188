@@ -1,0 +1,15 @@
+[
+  {
+    "items": [
+      "coffee",
+      {"title": "sugar", "quantity": 2},
+      {"title": "milk", "quantity": 0}
+    ]
+  },
+  {
+    "items": [
+      {"title": "coffee", "quantity": 2},
+      {"title": "milk", "quantity": 1}
+    ]
+  }
+]

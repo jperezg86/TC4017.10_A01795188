@@ -1,0 +1,15 @@
+[
+  {
+    "items": [
+      "keyboard",
+      {"title": "mouse", "quantity": 2},
+      {"title": "monitor", "quantity": 1}
+    ]
+  },
+  {
+    "items": [
+      {"title": "headset", "quantity": -1},
+      {"title": "mouse", "quantity": "3"}
+    ]
+  }
+]

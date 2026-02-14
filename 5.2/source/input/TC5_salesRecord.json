@@ -1,0 +1,5 @@
+[
+  {"items": [{"title": "itemA", "quantity": 100}, {"title": "itemB", "quantity": 80}]},
+  {"items": [{"title": "itemC", "quantity": 50}, "itemA", "itemB"]},
+  {"items": [{"title": "itemB", "quantity": 200}]}
+]
