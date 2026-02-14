@@ -8,7 +8,7 @@ import sys
 from pathlib import Path
 
 
-MODULE_PATH = Path("5.2/source/computeSales.py")
+MODULE_PATH = Path(__file__).resolve().parents[1] / "source" / "computeSales.py"
 
 
 def load_module():
