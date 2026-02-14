@@ -174,7 +174,12 @@ def compute_sales_totals(
         sale_total = 0.0
 
         for item_index, item in enumerate(items, start=1):
-            sale_total += compute_item_cost(item, lookup, sale_index, item_index)
+            sale_total += compute_item_cost(
+                item,
+                lookup,
+                sale_index,
+                item_index,
+            )
 
         sale_totals.append(sale_total)
         global_total += sale_total
