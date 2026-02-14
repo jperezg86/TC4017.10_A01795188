@@ -1,7 +1,9 @@
 Sales Summary
 ========================================
-Sale #0001: $5.50
-Sale #0002: $50.75
+Sale #0001: $899.00
+Sale #0002: $0.00
+Sale #0003: $0.00
+Sale #0004: $0.00
 ----------------------------------------
-Grand Total: $56.25
-Elapsed time: 0.002056 seconds
+Grand Total: $899.00
+Elapsed time: 0.002307 seconds
