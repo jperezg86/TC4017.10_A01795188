@@ -11,13 +11,13 @@
 Desde la raíz del repositorio:
 
 ```bash
-python 5.2/source/computeSales.py priceCatalogue.json salesRecord.json
+python 5.2/source/computeSales.py 5.2/source/input/priceCatalogue.json 5.2/source/input/salesRecord.json
 ```
 
 También puedes ejecutarlo desde `5.2/source`:
 
 ```bash
-python computeSales.py priceCatalogue.json salesRecord.json
+python computeSales.py input/priceCatalogue.json input/salesRecord.json
 ```
 
 ## Formato esperado del catálogo (`priceCatalogue.json`)
@@ -55,7 +55,7 @@ Un item puede ser:
 
 ## Salida
 El programa imprime un resumen legible en consola y además genera:
-- `SalesResults.txt`
+- `5.2/results/SalesResults.txt`
 
 La salida incluye:
 - total por venta
@@ -69,5 +69,5 @@ Si encuentra datos inválidos:
 
 ## Pruebas
 ```bash
-pytest -q 5.2/source/tests/test_computeSales.py
+pytest -q 5.2/tests/test_computeSales.py
 ```

@@ -90,10 +90,11 @@ def test_main_writes_sales_results_file(tmp_path, monkeypatch, capsys) -> None:
         "argv",
         ["computeSales.py", str(catalogue_path), str(sales_path)],
     )
+    results_file = tmp_path / "results" / "SalesResults.txt"
+    monkeypatch.setattr(compute_sales, "RESULT_FILE", results_file)
 
     code = compute_sales.main()
     captured = capsys.readouterr()
-    results_file = tmp_path / "SalesResults.txt"
 
     assert code == 0
     assert results_file.exists()

@@ -8,7 +8,8 @@ import time
 from pathlib import Path
 from typing import Any
 
-RESULT_FILE = Path("SalesResults.txt")
+BASE_DIR = Path(__file__).resolve().parents[1]
+RESULT_FILE = BASE_DIR / "results" / "SalesResults.txt"
 
 
 def parse_args() -> argparse.Namespace:
@@ -202,8 +203,11 @@ def format_results(
     return "\n".join(lines)
 
 
-def write_results(content: str, output_file: Path = RESULT_FILE) -> None:
+def write_results(content: str, output_file: Path | None = None) -> None:
     """Write result content to a text file."""
+    if output_file is None:
+        output_file = RESULT_FILE
+    output_file.parent.mkdir(parents=True, exist_ok=True)
     output_file.write_text(content + "\n", encoding="utf-8")
 
 
