@@ -4,8 +4,11 @@ from __future__ import annotations
 
 import argparse
 import json
+import time
 from pathlib import Path
 from typing import Any
+
+RESULT_FILE = Path("SalesResults.txt")
 
 
 def parse_args() -> argparse.Namespace:
@@ -179,18 +182,29 @@ def compute_sales_totals(
     return sale_totals, global_total
 
 
-def format_results(sale_totals: list[float], global_total: float) -> str:
+def format_results(
+    sale_totals: list[float],
+    global_total: float,
+    elapsed_seconds: float,
+) -> str:
     """Build a human-readable result string."""
     lines = ["Sales Summary", "=" * 40]
     for index, value in enumerate(sale_totals, start=1):
         lines.append(f"Sale #{index:04d}: ${value:.2f}")
     lines.append("-" * 40)
     lines.append(f"Grand Total: ${global_total:.2f}")
+    lines.append(f"Elapsed time: {elapsed_seconds:.6f} seconds")
     return "\n".join(lines)
+
+
+def write_results(content: str, output_file: Path = RESULT_FILE) -> None:
+    """Write result content to a text file."""
+    output_file.write_text(content + "\n", encoding="utf-8")
 
 
 def main() -> int:
     """Program entrypoint."""
+    start_time = time.perf_counter()
     args = parse_args()
 
     price_catalogue = load_json(args.price_catalogue)
@@ -199,7 +213,12 @@ def main() -> int:
     lookup = build_price_lookup(price_catalogue)
     sale_totals, global_total = compute_sales_totals(sales_records, lookup)
 
-    print(format_results(sale_totals, global_total))
+    elapsed_seconds = time.perf_counter() - start_time
+    results_text = format_results(sale_totals, global_total, elapsed_seconds)
+
+    print(results_text)
+    write_results(results_text)
+
     return 0
 
 
