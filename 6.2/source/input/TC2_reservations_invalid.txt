@@ -1,0 +1,4 @@
+{"reservation_id":"RES-6001","customer_id":"CUS-2001","hotel_id":"HOT-1001","room_count":0,"status":"active"}
+{"reservation_id":"RES-6002","customer_id":"CUS-2002","hotel_id":"HOT-1002","room_count":1,"status":"pending"}
+{"reservation_id":"RES-6003","customer_id":"CUS-9999","hotel_id":"HOT-1001","room_count":-2,"status":"active"}
+{{json_malformado}}

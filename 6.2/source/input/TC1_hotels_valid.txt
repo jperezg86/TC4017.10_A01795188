@@ -1,0 +1,2 @@
+{"hotel_id":"HOT-1001","name":"Hotel Centro","location":"Monterrey","total_rooms":20,"available_rooms":20,"amenities":["wifi","gym"]}
+{"hotel_id":"HOT-1002","name":"Hotel Playa","location":"Cancun","total_rooms":35,"available_rooms":30,"amenities":["pool","spa","wifi"]}

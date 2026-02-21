@@ -1,0 +1,4 @@
+{"customer_id":"CUS-5001","full_name":"Cliente Sin Correo","email":"correo_invalido","phone":"8133333333"}
+{"customer_id":"CUS-5002","full_name":"","email":"cliente@example.com","phone":"8144444444"}
+{"customer_id":"CUS-5003","full_name":"Falta Telefono","email":"falta.telefono@example.com"}
+texto_plano_no_json

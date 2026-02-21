@@ -1,0 +1,2 @@
+{"customer_id":"CUS-2001","full_name":"Ana Perez","email":"ana.perez@example.com","phone":"8111111111"}
+{"customer_id":"CUS-2002","full_name":"Carlos Ruiz","email":"carlos.ruiz@example.com","phone":"8122222222"}

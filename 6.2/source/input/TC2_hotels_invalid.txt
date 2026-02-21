@@ -1,0 +1,3 @@
+{"hotel_id":"HOT-4001","name":"Hotel Error 1","location":"Tijuana","total_rooms":10,"available_rooms":15,"amenities":[]}
+{"hotel_id":"HOT-4002","name":"Hotel Error 2","location":"Merida","total_rooms":-4,"available_rooms":-1,"amenities":["wifi"]}
+{linea_invalida}
