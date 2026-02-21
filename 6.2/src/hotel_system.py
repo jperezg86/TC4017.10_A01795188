@@ -121,7 +121,10 @@ class HotelSystem:
         self._save_hotels(remaining)
         return True
 
-    def display_hotel_information(self, hotel_id: str) -> dict[str, object] | None:
+    def display_hotel_information(
+        self,
+        hotel_id: str,
+    ) -> dict[str, object] | None:
         """Devuelve información de un hotel por identificador."""
         for hotel in self._load_hotels():
             if hotel.hotel_id == hotel_id:
@@ -129,7 +132,11 @@ class HotelSystem:
         print(f"ERROR: hotel no encontrado: {hotel_id}")
         return None
 
-    def modify_hotel_information(self, hotel_id: str, **changes: object) -> bool:
+    def modify_hotel_information(
+        self,
+        hotel_id: str,
+        **changes: object,
+    ) -> bool:
         """Actualiza datos de un hotel existente."""
         hotels = self._load_hotels()
         for hotel in hotels:
@@ -334,7 +341,11 @@ class HotelSystem:
             return False
 
         hotel = next(
-            (current for current in hotels if current.hotel_id == target.hotel_id),
+            (
+                current
+                for current in hotels
+                if current.hotel_id == target.hotel_id
+            ),
             None,
         )
         if hotel is None:
@@ -346,8 +357,10 @@ class HotelSystem:
 
         target.status = "cancelled"
         hotel.available_rooms += target.room_count
-        if hotel.available_rooms > hotel.total_rooms:
-            hotel.available_rooms = hotel.total_rooms
+        hotel.available_rooms = min(
+            hotel.available_rooms,
+            hotel.total_rooms,
+        )
 
         self._save_hotels(hotels)
         self._save_reservations(reservations)

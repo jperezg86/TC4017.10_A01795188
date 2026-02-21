@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 import io
+import shutil
 import tempfile
 import unittest
 from contextlib import redirect_stdout
@@ -17,13 +18,10 @@ class TestHotelSystem(unittest.TestCase):
 
     def setUp(self) -> None:
         """Crea un directorio temporal por caso de prueba."""
-        self.temp_dir = tempfile.TemporaryDirectory()
-        self.data_dir = Path(self.temp_dir.name)
+        temp_path = tempfile.mkdtemp()
+        self.data_dir = Path(temp_path)
         self.system = HotelSystem(data_dir=self.data_dir)
-
-    def tearDown(self) -> None:
-        """Limpia los recursos temporales creados."""
-        self.temp_dir.cleanup()
+        self.addCleanup(shutil.rmtree, self.data_dir)
 
     def test_create_and_display_hotel(self) -> None:
         """Crea un hotel y recupera su información."""
@@ -63,7 +61,7 @@ class TestHotelSystem(unittest.TestCase):
         self.assertEqual(payload["name"], "Hotel Norte Plus")
         self.assertEqual(payload["total_rooms"], 18)
 
-    def test_delete_hotel_without_active_reservations(self) -> None:
+    def test_delete_hotel_no_active(self) -> None:
         """Elimina un hotel cuando no hay reservaciones activas."""
         hotel = self.system.create_hotel(
             name="Hotel Sur",
@@ -78,7 +76,7 @@ class TestHotelSystem(unittest.TestCase):
             self.system.display_hotel_information(hotel.hotel_id)
         )
 
-    def test_create_modify_display_and_delete_customer(self) -> None:
+    def test_customer_crud_flow(self) -> None:
         """Ejercita CRUD completo de cliente."""
         customer = self.system.create_customer(
             full_name="Ana Pérez",
@@ -106,7 +104,7 @@ class TestHotelSystem(unittest.TestCase):
         deleted = self.system.delete_customer(customer.customer_id)
         self.assertTrue(deleted)
 
-    def test_create_and_cancel_reservation(self) -> None:
+    def test_create_and_cancel_reserve(self) -> None:
         """Crea y cancela una reservación restaurando disponibilidad."""
         hotel = self.system.create_hotel(
             name="Hotel Plaza",
@@ -128,7 +126,9 @@ class TestHotelSystem(unittest.TestCase):
         )
         self.assertIsNotNone(reservation)
 
-        hotel_after_reserve = self.system.display_hotel_information(hotel.hotel_id)
+        hotel_after_reserve = self.system.display_hotel_information(
+            hotel.hotel_id
+        )
         assert hotel_after_reserve is not None
         self.assertEqual(hotel_after_reserve["available_rooms"], 7)
 
@@ -136,7 +136,9 @@ class TestHotelSystem(unittest.TestCase):
         cancelled = self.system.cancel_reservation(reservation.reservation_id)
         self.assertTrue(cancelled)
 
-        hotel_after_cancel = self.system.display_hotel_information(hotel.hotel_id)
+        hotel_after_cancel = self.system.display_hotel_information(
+            hotel.hotel_id
+        )
         assert hotel_after_cancel is not None
         self.assertEqual(hotel_after_cancel["available_rooms"], 10)
 
@@ -162,7 +164,7 @@ class TestHotelSystem(unittest.TestCase):
         )
         self.assertIsNotNone(reservation)
 
-    def test_prevent_delete_hotel_with_active_reservation(self) -> None:
+    def test_prevent_hotel_delete(self) -> None:
         """Impide borrar hotel cuando existen reservaciones activas."""
         hotel = self.system.create_hotel(
             name="Hotel Activo",
@@ -181,7 +183,7 @@ class TestHotelSystem(unittest.TestCase):
         deleted = self.system.delete_hotel(hotel.hotel_id)
         self.assertFalse(deleted)
 
-    def test_prevent_delete_customer_with_active_reservation(self) -> None:
+    def test_prevent_customer_delete(self) -> None:
         """Impide borrar cliente cuando existen reservaciones activas."""
         hotel = self.system.create_hotel(
             name="Hotel Cliente",
@@ -200,7 +202,7 @@ class TestHotelSystem(unittest.TestCase):
         deleted = self.system.delete_customer(customer.customer_id)
         self.assertFalse(deleted)
 
-    def test_invalid_file_lines_are_reported_and_ignored(self) -> None:
+    def test_invalid_file_lines_ignored(self) -> None:
         """Reporta líneas inválidas y sigue procesando otras válidas."""
         bad_file = self.data_dir / "hotels.jsonl"
         bad_file.write_text(
@@ -218,7 +220,7 @@ class TestHotelSystem(unittest.TestCase):
         self.assertEqual(len(rows), 1)
         self.assertIn("ERROR:", output.getvalue())
 
-    def test_invalid_entities_from_file_are_skipped(self) -> None:
+    def test_invalid_entities_skipped(self) -> None:
         """Ignora entidades inválidas al cargar modelos desde archivo."""
         self.system.hotels_file.write_text(
             "{\"hotel_id\":\"h1\",\"name\":\"Bueno\",\"location\":\"Y\","
@@ -256,12 +258,16 @@ class TestHotelSystem(unittest.TestCase):
         )
         assert reservation is not None
 
-        first_cancel = self.system.cancel_reservation(reservation.reservation_id)
-        second_cancel = self.system.cancel_reservation(reservation.reservation_id)
+        first_cancel = self.system.cancel_reservation(
+            reservation.reservation_id
+        )
+        second_cancel = self.system.cancel_reservation(
+            reservation.reservation_id
+        )
         self.assertTrue(first_cancel)
         self.assertFalse(second_cancel)
 
-    def test_invalid_customer_data_fails(self) -> None:
+    def test_invalid_customer_fails(self) -> None:
         """No crea cliente cuando el correo es inválido."""
         customer = self.system.create_customer(
             full_name="Nombre Sin Correo",
