@@ -80,6 +80,31 @@ def mostrar_menu() -> None:
     print("0. Salir")
 
 
+def esperar_tecla() -> None:
+    """Detiene el flujo hasta que el usuario presione Enter."""
+    input("\nPresiona Enter para continuar...")
+
+
+def mostrar_hotel_bonito(data: dict[str, object]) -> None:
+    """Imprime un hotel con formato legible para el usuario."""
+    amenidades = data.get("amenities", [])
+    if isinstance(amenidades, list) and amenidades:
+        amenidades_txt = ", ".join(str(item) for item in amenidades)
+    else:
+        amenidades_txt = "Sin amenidades registradas"
+
+    print("\n" + "=" * 45)
+    print("INFORMACION DEL HOTEL")
+    print("=" * 45)
+    print(f"ID: {data.get('hotel_id', 'N/A')}")
+    print(f"Nombre: {data.get('name', 'N/A')}")
+    print(f"Ubicacion: {data.get('location', 'N/A')}")
+    print(f"Cuartos totales: {data.get('total_rooms', 'N/A')}")
+    print(f"Cuartos disponibles: {data.get('available_rooms', 'N/A')}")
+    print(f"Amenidades: {amenidades_txt}")
+    print("=" * 45)
+
+
 def opcion_crear_hotel(sistema: HotelSystem) -> None:
     """Solicita datos y crea un hotel."""
     nombre = input("Nombre del hotel: ").strip()
@@ -119,7 +144,7 @@ def opcion_mostrar_hotel(sistema: HotelSystem) -> None:
     hotel_id = input("ID del hotel a consultar: ").strip()
     data = sistema.display_hotel_information(hotel_id)
     if data is not None:
-        print(data)
+        mostrar_hotel_bonito(data)
 
 
 def opcion_modificar_hotel(sistema: HotelSystem) -> None:
@@ -279,9 +304,11 @@ def ejecutar_menu(sistema: HotelSystem) -> None:
         accion = acciones.get(opcion)
         if accion is None:
             print("ERROR: opcion invalida.")
+            esperar_tecla()
             continue
 
         accion(sistema)
+        esperar_tecla()
 
 
 def main() -> int:
