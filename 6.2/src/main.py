@@ -54,6 +54,26 @@ def parse_args() -> argparse.Namespace:
     return parser.parse_args()
 
 
+def mostrar_separador() -> None:
+    """Imprime una linea separadora visual."""
+    print("-" * 45)
+
+
+def mostrar_exito(mensaje: str) -> None:
+    """Imprime un mensaje de exito con formato uniforme."""
+    print(f"\n[OK] {mensaje}")
+
+
+def mostrar_info(mensaje: str) -> None:
+    """Imprime un mensaje informativo con formato uniforme."""
+    print(f"[INFO] {mensaje}")
+
+
+def mostrar_error(mensaje: str) -> None:
+    """Imprime un mensaje de error con formato uniforme."""
+    print(f"[ERROR] {mensaje}")
+
+
 def solicitar_entero(mensaje: str) -> int:
     """Solicita un numero entero al usuario con reintento."""
     while True:
@@ -61,7 +81,7 @@ def solicitar_entero(mensaje: str) -> int:
         try:
             return int(valor)
         except ValueError:
-            print("ERROR: debes ingresar un numero entero.")
+            mostrar_error("Debes ingresar un numero entero.")
 
 
 def mostrar_menu() -> None:
@@ -105,6 +125,31 @@ def mostrar_hotel_bonito(data: dict[str, object]) -> None:
     print("=" * 45)
 
 
+def mostrar_cliente_bonito(data: dict[str, str]) -> None:
+    """Imprime un cliente con formato legible para el usuario."""
+    print("\n" + "=" * 45)
+    print("INFORMACION DEL CLIENTE")
+    print("=" * 45)
+    print(f"ID: {data.get('customer_id', 'N/A')}")
+    print(f"Nombre completo: {data.get('full_name', 'N/A')}")
+    print(f"Correo: {data.get('email', 'N/A')}")
+    print(f"Telefono: {data.get('phone', 'N/A')}")
+    print("=" * 45)
+
+
+def mostrar_reservacion_bonita(data: dict[str, object]) -> None:
+    """Imprime una reservacion con formato legible para el usuario."""
+    print("\n" + "=" * 45)
+    print("INFORMACION DE LA RESERVACION")
+    print("=" * 45)
+    print(f"ID: {data.get('reservation_id', 'N/A')}")
+    print(f"Cliente: {data.get('customer_id', 'N/A')}")
+    print(f"Hotel: {data.get('hotel_id', 'N/A')}")
+    print(f"Cantidad de cuartos: {data.get('room_count', 'N/A')}")
+    print(f"Estatus: {data.get('status', 'N/A')}")
+    print("=" * 45)
+
+
 def opcion_crear_hotel(sistema: HotelSystem) -> None:
     """Solicita datos y crea un hotel."""
     nombre = input("Nombre del hotel: ").strip()
@@ -123,11 +168,11 @@ def opcion_crear_hotel(sistema: HotelSystem) -> None:
 
     hotel = sistema.create_hotel(nombre, ubicacion, total_cuartos, amenidades)
     if hotel is None:
-        print("No fue posible crear el hotel.")
+        mostrar_error("No fue posible crear el hotel.")
         return
-    print("Hotel creado con exito.")
-    print(f"ID asignado: {hotel.hotel_id}")
-    print(f"Guardado en: {sistema.hotels_file}")
+    mostrar_exito("Hotel creado con exito.")
+    mostrar_info(f"ID asignado: {hotel.hotel_id}")
+    mostrar_info(f"Guardado en: {sistema.hotels_file}")
 
 
 def opcion_eliminar_hotel(sistema: HotelSystem) -> None:
@@ -135,8 +180,10 @@ def opcion_eliminar_hotel(sistema: HotelSystem) -> None:
     hotel_id = input("ID del hotel a eliminar: ").strip()
     eliminado = sistema.delete_hotel(hotel_id)
     if eliminado:
-        print("Hotel eliminado correctamente.")
-        print(f"Archivo actualizado: {sistema.hotels_file}")
+        mostrar_exito("Hotel eliminado correctamente.")
+        mostrar_info(f"Archivo actualizado: {sistema.hotels_file}")
+        return
+    mostrar_error("No se pudo eliminar el hotel.")
 
 
 def opcion_mostrar_hotel(sistema: HotelSystem) -> None:
@@ -150,7 +197,7 @@ def opcion_mostrar_hotel(sistema: HotelSystem) -> None:
 def opcion_modificar_hotel(sistema: HotelSystem) -> None:
     """Solicita cambios y modifica un hotel."""
     hotel_id = input("ID del hotel a modificar: ").strip()
-    print("Deja en blanco los campos que no quieras cambiar.")
+    mostrar_info("Deja en blanco los campos que no quieras cambiar.")
 
     cambios: dict[str, object] = {}
     nombre = input("Nuevo nombre: ").strip()
@@ -166,7 +213,7 @@ def opcion_modificar_hotel(sistema: HotelSystem) -> None:
         try:
             cambios["total_rooms"] = int(total_cuartos)
         except ValueError:
-            print("ERROR: total de cuartos invalido.")
+            mostrar_error("Total de cuartos invalido.")
             return
 
     disponibles = input("Nuevo numero de cuartos disponibles: ").strip()
@@ -174,7 +221,7 @@ def opcion_modificar_hotel(sistema: HotelSystem) -> None:
         try:
             cambios["available_rooms"] = int(disponibles)
         except ValueError:
-            print("ERROR: cuartos disponibles invalido.")
+            mostrar_error("Cuartos disponibles invalido.")
             return
 
     amenidades = input("Nuevas amenidades separadas por coma: ").strip()
@@ -184,13 +231,15 @@ def opcion_modificar_hotel(sistema: HotelSystem) -> None:
         ]
 
     if not cambios:
-        print("No se proporcionaron cambios.")
+        mostrar_error("No se proporcionaron cambios.")
         return
 
     modificado = sistema.modify_hotel_information(hotel_id, **cambios)
     if modificado:
-        print("Hotel actualizado correctamente.")
-        print(f"Archivo actualizado: {sistema.hotels_file}")
+        mostrar_exito("Hotel actualizado correctamente.")
+        mostrar_info(f"Archivo actualizado: {sistema.hotels_file}")
+        return
+    mostrar_error("No se pudo actualizar el hotel.")
 
 
 def opcion_crear_cliente(sistema: HotelSystem) -> None:
@@ -200,11 +249,11 @@ def opcion_crear_cliente(sistema: HotelSystem) -> None:
     telefono = input("Telefono: ").strip()
     cliente = sistema.create_customer(nombre, correo, telefono)
     if cliente is None:
-        print("No fue posible crear el cliente.")
+        mostrar_error("No fue posible crear el cliente.")
         return
-    print("Cliente creado con exito.")
-    print(f"ID asignado: {cliente.customer_id}")
-    print(f"Guardado en: {sistema.customers_file}")
+    mostrar_exito("Cliente creado con exito.")
+    mostrar_info(f"ID asignado: {cliente.customer_id}")
+    mostrar_info(f"Guardado en: {sistema.customers_file}")
 
 
 def opcion_eliminar_cliente(sistema: HotelSystem) -> None:
@@ -212,8 +261,10 @@ def opcion_eliminar_cliente(sistema: HotelSystem) -> None:
     customer_id = input("ID del cliente a eliminar: ").strip()
     eliminado = sistema.delete_customer(customer_id)
     if eliminado:
-        print("Cliente eliminado correctamente.")
-        print(f"Archivo actualizado: {sistema.customers_file}")
+        mostrar_exito("Cliente eliminado correctamente.")
+        mostrar_info(f"Archivo actualizado: {sistema.customers_file}")
+        return
+    mostrar_error("No se pudo eliminar el cliente.")
 
 
 def opcion_mostrar_cliente(sistema: HotelSystem) -> None:
@@ -221,13 +272,13 @@ def opcion_mostrar_cliente(sistema: HotelSystem) -> None:
     customer_id = input("ID del cliente a consultar: ").strip()
     data = sistema.display_customer_information(customer_id)
     if data is not None:
-        print(data)
+        mostrar_cliente_bonito(data)
 
 
 def opcion_modificar_cliente(sistema: HotelSystem) -> None:
     """Solicita cambios y modifica un cliente."""
     customer_id = input("ID del cliente a modificar: ").strip()
-    print("Deja en blanco los campos que no quieras cambiar.")
+    mostrar_info("Deja en blanco los campos que no quieras cambiar.")
 
     cambios: dict[str, object] = {}
     nombre = input("Nuevo nombre completo: ").strip()
@@ -243,13 +294,15 @@ def opcion_modificar_cliente(sistema: HotelSystem) -> None:
         cambios["phone"] = telefono
 
     if not cambios:
-        print("No se proporcionaron cambios.")
+        mostrar_error("No se proporcionaron cambios.")
         return
 
     modificado = sistema.modify_customer_information(customer_id, **cambios)
     if modificado:
-        print("Cliente actualizado correctamente.")
-        print(f"Archivo actualizado: {sistema.customers_file}")
+        mostrar_exito("Cliente actualizado correctamente.")
+        mostrar_info(f"Archivo actualizado: {sistema.customers_file}")
+        return
+    mostrar_error("No se pudo actualizar el cliente.")
 
 
 def opcion_crear_reservacion(sistema: HotelSystem) -> None:
@@ -260,12 +313,13 @@ def opcion_crear_reservacion(sistema: HotelSystem) -> None:
 
     reservacion = sistema.create_reservation(customer_id, hotel_id, room_count)
     if reservacion is None:
-        print("No fue posible crear la reservacion.")
+        mostrar_error("No fue posible crear la reservacion.")
         return
-    print("Reservacion creada con exito.")
-    print(f"ID asignado: {reservacion.reservation_id}")
-    print(f"Archivo actualizado: {sistema.reservations_file}")
-    print(f"Archivo actualizado: {sistema.hotels_file}")
+    mostrar_exito("Reservacion creada con exito.")
+    mostrar_info(f"ID asignado: {reservacion.reservation_id}")
+    mostrar_info(f"Archivo actualizado: {sistema.reservations_file}")
+    mostrar_info(f"Archivo actualizado: {sistema.hotels_file}")
+    mostrar_reservacion_bonita(reservacion.to_dict())
 
 
 def opcion_cancelar_reservacion(sistema: HotelSystem) -> None:
@@ -273,9 +327,11 @@ def opcion_cancelar_reservacion(sistema: HotelSystem) -> None:
     reservation_id = input("ID de la reservacion a cancelar: ").strip()
     cancelada = sistema.cancel_reservation(reservation_id)
     if cancelada:
-        print("Reservacion cancelada correctamente.")
-        print(f"Archivo actualizado: {sistema.reservations_file}")
-        print(f"Archivo actualizado: {sistema.hotels_file}")
+        mostrar_exito("Reservacion cancelada correctamente.")
+        mostrar_info(f"Archivo actualizado: {sistema.reservations_file}")
+        mostrar_info(f"Archivo actualizado: {sistema.hotels_file}")
+        return
+    mostrar_error("No se pudo cancelar la reservacion.")
 
 
 def ejecutar_menu(sistema: HotelSystem) -> None:
@@ -303,7 +359,7 @@ def ejecutar_menu(sistema: HotelSystem) -> None:
 
         accion = acciones.get(opcion)
         if accion is None:
-            print("ERROR: opcion invalida.")
+            mostrar_error("Opcion invalida.")
             esperar_tecla()
             continue
 
@@ -332,8 +388,10 @@ def main() -> int:
         sys.stdout = salida_duplicada
         sys.stderr = error_duplicado
         try:
-            print(f"Directorio de datos: {args.data_dir}")
-            print(f"Archivo de resultados: {RESULT_FILE}")
+            mostrar_separador()
+            mostrar_info(f"Directorio de datos: {args.data_dir}")
+            mostrar_info(f"Archivo de resultados: {RESULT_FILE}")
+            mostrar_separador()
             ejecutar_menu(sistema)
         finally:
             sys.stdout = original_stdout
