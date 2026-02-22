@@ -68,3 +68,7 @@ coverage html -d result/htmlcov
 flake8 6.2/src 6.2/test
 pylint 6.2/src/*.py 6.2/test/*.py
 ```
+
+### Importante
+
+La evidencia documentada de ejecución está en result/screenrecord, es un video mp4 donde pueden ver la ejecución del programa.
