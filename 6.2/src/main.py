@@ -315,20 +315,20 @@ def opcion_modificar_cliente(sistema: HotelSystem) -> None:
     cambios: dict[str, object] = {}
     nombre = input(
         "Nuevo nombre completo "
-        f"(valor actual: {actual.get('full_name', 'N/A')}): "
+        f"(nombre actual: {actual.get('full_name', 'N/A')}): "
     ).strip()
     if nombre:
         cambios["full_name"] = nombre
 
     correo = input(
         "Nuevo correo electronico "
-        f"(valor actual: {actual.get('email', 'N/A')}): "
+        f"(correo actual: {actual.get('email', 'N/A')}): "
     ).strip()
     if correo:
         cambios["email"] = correo
 
     telefono = input(
-        f"Nuevo telefono (valor actual: {actual.get('phone', 'N/A')}): "
+        f"Nuevo telefono (telefono actual: {actual.get('phone', 'N/A')}): "
     ).strip()
     if telefono:
         cambios["phone"] = telefono
