@@ -101,6 +101,7 @@ def opcion_crear_hotel(sistema: HotelSystem) -> None:
         print("No fue posible crear el hotel.")
         return
     print(f"Hotel creado con exito: {hotel.hotel_id}")
+    print(f"Guardado en: {sistema.hotels_file}")
 
 
 def opcion_eliminar_hotel(sistema: HotelSystem) -> None:
@@ -109,6 +110,7 @@ def opcion_eliminar_hotel(sistema: HotelSystem) -> None:
     eliminado = sistema.delete_hotel(hotel_id)
     if eliminado:
         print("Hotel eliminado correctamente.")
+        print(f"Archivo actualizado: {sistema.hotels_file}")
 
 
 def opcion_mostrar_hotel(sistema: HotelSystem) -> None:
@@ -162,6 +164,7 @@ def opcion_modificar_hotel(sistema: HotelSystem) -> None:
     modificado = sistema.modify_hotel_information(hotel_id, **cambios)
     if modificado:
         print("Hotel actualizado correctamente.")
+        print(f"Archivo actualizado: {sistema.hotels_file}")
 
 
 def opcion_crear_cliente(sistema: HotelSystem) -> None:
@@ -174,6 +177,7 @@ def opcion_crear_cliente(sistema: HotelSystem) -> None:
         print("No fue posible crear el cliente.")
         return
     print(f"Cliente creado con exito: {cliente.customer_id}")
+    print(f"Guardado en: {sistema.customers_file}")
 
 
 def opcion_eliminar_cliente(sistema: HotelSystem) -> None:
@@ -182,6 +186,7 @@ def opcion_eliminar_cliente(sistema: HotelSystem) -> None:
     eliminado = sistema.delete_customer(customer_id)
     if eliminado:
         print("Cliente eliminado correctamente.")
+        print(f"Archivo actualizado: {sistema.customers_file}")
 
 
 def opcion_mostrar_cliente(sistema: HotelSystem) -> None:
@@ -217,6 +222,7 @@ def opcion_modificar_cliente(sistema: HotelSystem) -> None:
     modificado = sistema.modify_customer_information(customer_id, **cambios)
     if modificado:
         print("Cliente actualizado correctamente.")
+        print(f"Archivo actualizado: {sistema.customers_file}")
 
 
 def opcion_crear_reservacion(sistema: HotelSystem) -> None:
@@ -230,6 +236,8 @@ def opcion_crear_reservacion(sistema: HotelSystem) -> None:
         print("No fue posible crear la reservacion.")
         return
     print(f"Reservacion creada con exito: {reservacion.reservation_id}")
+    print(f"Archivo actualizado: {sistema.reservations_file}")
+    print(f"Archivo actualizado: {sistema.hotels_file}")
 
 
 def opcion_cancelar_reservacion(sistema: HotelSystem) -> None:
@@ -238,6 +246,8 @@ def opcion_cancelar_reservacion(sistema: HotelSystem) -> None:
     cancelada = sistema.cancel_reservation(reservation_id)
     if cancelada:
         print("Reservacion cancelada correctamente.")
+        print(f"Archivo actualizado: {sistema.reservations_file}")
+        print(f"Archivo actualizado: {sistema.hotels_file}")
 
 
 def ejecutar_menu(sistema: HotelSystem) -> None:
