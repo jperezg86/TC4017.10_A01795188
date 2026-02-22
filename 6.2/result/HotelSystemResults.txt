@@ -507,3 +507,723 @@ Presiona Enter para continuar...
 11. Buscar reservacion
 0. Salir
 Selecciona una opcion: 
+============================================================
+Inicio de ejecucion: 2026-02-22T11:42:30
+---------------------------------------------
+[INFO] Directorio de datos: /home/jperez/Documents/Pruebas de Software Y aseguramiento de la calidad/TC4017.10_A01795188/6.2/source/input
+[INFO] Archivo de resultados: /home/jperez/Documents/Pruebas de Software Y aseguramiento de la calidad/TC4017.10_A01795188/6.2/result/HotelSystemResults.txt
+---------------------------------------------
+
+=== Sistema de Reservaciones de Hotel ===
+1. Crear hotel
+2. Eliminar hotel
+3. Mostrar informacion de hotel
+4. Modificar informacion de hotel
+5. Crear cliente
+6. Eliminar cliente
+7. Mostrar informacion de cliente
+8. Modificar informacion de cliente
+9. Crear reservacion
+10. Cancelar reservacion
+11. Buscar reservacion
+0. Salir
+Selecciona una opcion: [ERROR] Opcion invalida.
+
+Presiona Enter para continuar...
+=== Sistema de Reservaciones de Hotel ===
+1. Crear hotel
+2. Eliminar hotel
+3. Mostrar informacion de hotel
+4. Modificar informacion de hotel
+5. Crear cliente
+6. Eliminar cliente
+7. Mostrar informacion de cliente
+8. Modificar informacion de cliente
+9. Crear reservacion
+10. Cancelar reservacion
+11. Buscar reservacion
+0. Salir
+Selecciona una opcion: ID del hotel a consultar: 
+=============================================
+INFORMACION DEL HOTEL
+=============================================
+ID: HOT-f4ec4edd
+Nombre: Hotel las ramblas
+Ubicacion: Paseo cuahunanuac 114 Col, centro, Cuernavaca Morelos
+Cuartos totales: 3
+Cuartos disponibles: 3
+Amenidades: Sin amenidades registradas
+=============================================
+
+Presiona Enter para continuar...
+=== Sistema de Reservaciones de Hotel ===
+1. Crear hotel
+2. Eliminar hotel
+3. Mostrar informacion de hotel
+4. Modificar informacion de hotel
+5. Crear cliente
+6. Eliminar cliente
+7. Mostrar informacion de cliente
+8. Modificar informacion de cliente
+9. Crear reservacion
+10. Cancelar reservacion
+11. Buscar reservacion
+0. Salir
+Selecciona una opcion: Nombre del hotel: Ubicacion: Total de cuartos: Amenidades separadas por coma (opcional): 
+[OK] Hotel creado con exito.
+[INFO] ID asignado: HOT-2f204123
+[INFO] Guardado en: /home/jperez/Documents/Pruebas de Software Y aseguramiento de la calidad/TC4017.10_A01795188/6.2/source/input/hotels.jsonl
+
+Presiona Enter para continuar...
+=== Sistema de Reservaciones de Hotel ===
+1. Crear hotel
+2. Eliminar hotel
+3. Mostrar informacion de hotel
+4. Modificar informacion de hotel
+5. Crear cliente
+6. Eliminar cliente
+7. Mostrar informacion de cliente
+8. Modificar informacion de cliente
+9. Crear reservacion
+10. Cancelar reservacion
+11. Buscar reservacion
+0. Salir
+Selecciona una opcion: ID del hotel a consultar: 
+=============================================
+INFORMACION DEL HOTEL
+=============================================
+ID: HOT-2f204123
+Nombre: Hotel California
+Ubicacion: Cuernavaca
+Cuartos totales: 200
+Cuartos disponibles: 200
+Amenidades: Sin amenidades registradas
+=============================================
+
+Presiona Enter para continuar...
+=== Sistema de Reservaciones de Hotel ===
+1. Crear hotel
+2. Eliminar hotel
+3. Mostrar informacion de hotel
+4. Modificar informacion de hotel
+5. Crear cliente
+6. Eliminar cliente
+7. Mostrar informacion de cliente
+8. Modificar informacion de cliente
+9. Crear reservacion
+10. Cancelar reservacion
+11. Buscar reservacion
+0. Salir
+Selecciona una opcion: ID del hotel a eliminar: 
+[OK] Hotel eliminado correctamente.
+[INFO] Archivo actualizado: /home/jperez/Documents/Pruebas de Software Y aseguramiento de la calidad/TC4017.10_A01795188/6.2/source/input/hotels.jsonl
+
+Presiona Enter para continuar...
+=== Sistema de Reservaciones de Hotel ===
+1. Crear hotel
+2. Eliminar hotel
+3. Mostrar informacion de hotel
+4. Modificar informacion de hotel
+5. Crear cliente
+6. Eliminar cliente
+7. Mostrar informacion de cliente
+8. Modificar informacion de cliente
+9. Crear reservacion
+10. Cancelar reservacion
+11. Buscar reservacion
+0. Salir
+Selecciona una opcion: ID del hotel a consultar: ERROR: hotel no encontrado: HOT-2f204123
+
+Presiona Enter para continuar...
+=== Sistema de Reservaciones de Hotel ===
+1. Crear hotel
+2. Eliminar hotel
+3. Mostrar informacion de hotel
+4. Modificar informacion de hotel
+5. Crear cliente
+6. Eliminar cliente
+7. Mostrar informacion de cliente
+8. Modificar informacion de cliente
+9. Crear reservacion
+10. Cancelar reservacion
+11. Buscar reservacion
+0. Salir
+Selecciona una opcion: ID del cliente a consultar: 
+=============================================
+INFORMACION DEL CLIENTE
+=============================================
+ID: CUS-e6c3caa3
+Nombre completo: Cirilo Perez García
+Correo: cpg_47@hotmail.com
+Telefono: 7293041298
+=============================================
+
+Presiona Enter para continuar...
+=== Sistema de Reservaciones de Hotel ===
+1. Crear hotel
+2. Eliminar hotel
+3. Mostrar informacion de hotel
+4. Modificar informacion de hotel
+5. Crear cliente
+6. Eliminar cliente
+7. Mostrar informacion de cliente
+8. Modificar informacion de cliente
+9. Crear reservacion
+10. Cancelar reservacion
+11. Buscar reservacion
+0. Salir
+Selecciona una opcion: ID del cliente a eliminar: 
+[OK] Cliente eliminado correctamente.
+[INFO] Archivo actualizado: /home/jperez/Documents/Pruebas de Software Y aseguramiento de la calidad/TC4017.10_A01795188/6.2/source/input/customers.jsonl
+
+Presiona Enter para continuar...
+=== Sistema de Reservaciones de Hotel ===
+1. Crear hotel
+2. Eliminar hotel
+3. Mostrar informacion de hotel
+4. Modificar informacion de hotel
+5. Crear cliente
+6. Eliminar cliente
+7. Mostrar informacion de cliente
+8. Modificar informacion de cliente
+9. Crear reservacion
+10. Cancelar reservacion
+11. Buscar reservacion
+0. Salir
+Selecciona una opcion: ID del cliente a consultar: ERROR: cliente no encontrado: CUS-e6c3caa3
+
+Presiona Enter para continuar...
+=== Sistema de Reservaciones de Hotel ===
+1. Crear hotel
+2. Eliminar hotel
+3. Mostrar informacion de hotel
+4. Modificar informacion de hotel
+5. Crear cliente
+6. Eliminar cliente
+7. Mostrar informacion de cliente
+8. Modificar informacion de cliente
+9. Crear reservacion
+10. Cancelar reservacion
+11. Buscar reservacion
+0. Salir
+Selecciona una opcion: Nombre completo: Correo electronico: Telefono: 
+[OK] Cliente creado con exito.
+[INFO] ID asignado: CUS-2557305d
+[INFO] Guardado en: /home/jperez/Documents/Pruebas de Software Y aseguramiento de la calidad/TC4017.10_A01795188/6.2/source/input/customers.jsonl
+
+Presiona Enter para continuar...
+=== Sistema de Reservaciones de Hotel ===
+1. Crear hotel
+2. Eliminar hotel
+3. Mostrar informacion de hotel
+4. Modificar informacion de hotel
+5. Crear cliente
+6. Eliminar cliente
+7. Mostrar informacion de cliente
+8. Modificar informacion de cliente
+9. Crear reservacion
+10. Cancelar reservacion
+11. Buscar reservacion
+0. Salir
+Selecciona una opcion: ID del cliente a consultar: 
+=============================================
+INFORMACION DEL CLIENTE
+=============================================
+ID: CUS-2557305d
+Nombre completo: Jose Manuel Perez
+Correo: jperezg86@gmail.com
+Telefono: 7293014624
+=============================================
+
+Presiona Enter para continuar...
+=== Sistema de Reservaciones de Hotel ===
+1. Crear hotel
+2. Eliminar hotel
+3. Mostrar informacion de hotel
+4. Modificar informacion de hotel
+5. Crear cliente
+6. Eliminar cliente
+7. Mostrar informacion de cliente
+8. Modificar informacion de cliente
+9. Crear reservacion
+10. Cancelar reservacion
+11. Buscar reservacion
+0. Salir
+Selecciona una opcion: ID del cliente: ID del hotel: Cantidad de cuartos a reservar: 
+[OK] Reservacion creada con exito.
+[INFO] ID asignado: RES-dbdd7f9b
+[INFO] Archivo actualizado: /home/jperez/Documents/Pruebas de Software Y aseguramiento de la calidad/TC4017.10_A01795188/6.2/source/input/reservations.jsonl
+[INFO] Archivo actualizado: /home/jperez/Documents/Pruebas de Software Y aseguramiento de la calidad/TC4017.10_A01795188/6.2/source/input/hotels.jsonl
+
+=============================================
+INFORMACION DE LA RESERVACION
+=============================================
+ID: RES-dbdd7f9b
+Cliente: CUS-2557305d
+Nombre cliente: N/A
+Hotel: HOT-d9abe14c
+Cantidad de cuartos: 1
+Estatus: active
+=============================================
+
+Presiona Enter para continuar...
+=== Sistema de Reservaciones de Hotel ===
+1. Crear hotel
+2. Eliminar hotel
+3. Mostrar informacion de hotel
+4. Modificar informacion de hotel
+5. Crear cliente
+6. Eliminar cliente
+7. Mostrar informacion de cliente
+8. Modificar informacion de cliente
+9. Crear reservacion
+10. Cancelar reservacion
+11. Buscar reservacion
+0. Salir
+Selecciona una opcion: 
+Buscar por:
+1. Numero de reservacion
+2. Nombre del cliente
+Selecciona criterio: Numero de reservacion: 
+[OK] Reservacion encontrada.
+
+=============================================
+INFORMACION DE LA RESERVACION
+=============================================
+ID: RES-dbdd7f9b
+Cliente: CUS-2557305d
+Nombre cliente: Jose Manuel Perez
+Hotel: HOT-d9abe14c
+Cantidad de cuartos: 1
+Estatus: active
+=============================================
+
+Presiona Enter para continuar...
+=== Sistema de Reservaciones de Hotel ===
+1. Crear hotel
+2. Eliminar hotel
+3. Mostrar informacion de hotel
+4. Modificar informacion de hotel
+5. Crear cliente
+6. Eliminar cliente
+7. Mostrar informacion de cliente
+8. Modificar informacion de cliente
+9. Crear reservacion
+10. Cancelar reservacion
+11. Buscar reservacion
+0. Salir
+Selecciona una opcion: ID de la reservacion a cancelar: 
+[OK] Reservacion cancelada correctamente.
+[INFO] Archivo actualizado: /home/jperez/Documents/Pruebas de Software Y aseguramiento de la calidad/TC4017.10_A01795188/6.2/source/input/reservations.jsonl
+[INFO] Archivo actualizado: /home/jperez/Documents/Pruebas de Software Y aseguramiento de la calidad/TC4017.10_A01795188/6.2/source/input/hotels.jsonl
+
+Presiona Enter para continuar...
+=== Sistema de Reservaciones de Hotel ===
+1. Crear hotel
+2. Eliminar hotel
+3. Mostrar informacion de hotel
+4. Modificar informacion de hotel
+5. Crear cliente
+6. Eliminar cliente
+7. Mostrar informacion de cliente
+8. Modificar informacion de cliente
+9. Crear reservacion
+10. Cancelar reservacion
+11. Buscar reservacion
+0. Salir
+Selecciona una opcion: ID del hotel a consultar: 
+=============================================
+INFORMACION DEL HOTEL
+=============================================
+ID: HOT-f4ec4edd
+Nombre: Hotel las ramblas
+Ubicacion: Paseo cuahunanuac 114 Col, centro, Cuernavaca Morelos
+Cuartos totales: 3
+Cuartos disponibles: 3
+Amenidades: Sin amenidades registradas
+=============================================
+
+Presiona Enter para continuar...
+=== Sistema de Reservaciones de Hotel ===
+1. Crear hotel
+2. Eliminar hotel
+3. Mostrar informacion de hotel
+4. Modificar informacion de hotel
+5. Crear cliente
+6. Eliminar cliente
+7. Mostrar informacion de cliente
+8. Modificar informacion de cliente
+9. Crear reservacion
+10. Cancelar reservacion
+11. Buscar reservacion
+0. Salir
+Selecciona una opcion: ID del hotel a modificar: [INFO] Deja en blanco los campos que no quieras cambiar.
+Nuevo nombre (valor actual: Hotel las ramblas): Nueva ubicacion (valor actual: Paseo cuahunanuac 114 Col, centro, Cuernavaca Morelos): Nuevo total de cuartos (valor actual: 3): Nuevo numero de cuartos disponibles (valor actual: 3): Nuevas amenidades separadas por coma (valor actual: ): 
+[OK] Hotel actualizado correctamente.
+[INFO] Archivo actualizado: /home/jperez/Documents/Pruebas de Software Y aseguramiento de la calidad/TC4017.10_A01795188/6.2/source/input/hotels.jsonl
+
+Presiona Enter para continuar...
+=== Sistema de Reservaciones de Hotel ===
+1. Crear hotel
+2. Eliminar hotel
+3. Mostrar informacion de hotel
+4. Modificar informacion de hotel
+5. Crear cliente
+6. Eliminar cliente
+7. Mostrar informacion de cliente
+8. Modificar informacion de cliente
+9. Crear reservacion
+10. Cancelar reservacion
+11. Buscar reservacion
+0. Salir
+Selecciona una opcion: ID del hotel a consultar: 
+=============================================
+INFORMACION DEL HOTEL
+=============================================
+ID: HOT-f4ec4edd
+Nombre: Las ramblas
+Ubicacion: CDMX
+Cuartos totales: 300
+Cuartos disponibles: 3
+Amenidades: Sin amenidades registradas
+=============================================
+
+Presiona Enter para continuar...
+=== Sistema de Reservaciones de Hotel ===
+1. Crear hotel
+2. Eliminar hotel
+3. Mostrar informacion de hotel
+4. Modificar informacion de hotel
+5. Crear cliente
+6. Eliminar cliente
+7. Mostrar informacion de cliente
+8. Modificar informacion de cliente
+9. Crear reservacion
+10. Cancelar reservacion
+11. Buscar reservacion
+0. Salir
+Selecciona una opcion: 
+============================================================
+Inicio de ejecucion: 2026-02-22T11:52:06
+---------------------------------------------
+[INFO] Directorio de datos: /home/jperez/Documents/Pruebas de Software Y aseguramiento de la calidad/TC4017.10_A01795188/6.2/source/input
+[INFO] Archivo de resultados: /home/jperez/Documents/Pruebas de Software Y aseguramiento de la calidad/TC4017.10_A01795188/6.2/result/HotelSystemResults.txt
+---------------------------------------------
+
+=== Sistema de Reservaciones de Hotel ===
+1. Crear hotel
+2. Eliminar hotel
+3. Mostrar informacion de hotel
+4. Modificar informacion de hotel
+5. Crear cliente
+6. Eliminar cliente
+7. Mostrar informacion de cliente
+8. Modificar informacion de cliente
+9. Crear reservacion
+10. Cancelar reservacion
+11. Buscar reservacion
+0. Salir
+Selecciona una opcion: ID del hotel a consultar: 
+=============================================
+INFORMACION DEL HOTEL
+=============================================
+ID: HOT-d9abe14c
+Nombre: Hotel Visual
+Ubicacion: MTY
+Cuartos totales: 5
+Cuartos disponibles: 5
+Amenidades: wifi, gym
+=============================================
+
+Presiona Enter para continuar...
+=== Sistema de Reservaciones de Hotel ===
+1. Crear hotel
+2. Eliminar hotel
+3. Mostrar informacion de hotel
+4. Modificar informacion de hotel
+5. Crear cliente
+6. Eliminar cliente
+7. Mostrar informacion de cliente
+8. Modificar informacion de cliente
+9. Crear reservacion
+10. Cancelar reservacion
+11. Buscar reservacion
+0. Salir
+Selecciona una opcion: ID del hotel a modificar: [INFO] Deja en blanco los campos que no quieras cambiar.
+Nuevo nombre (valor actual: Hotel Visual): Nueva ubicacion (valor actual: MTY): Nuevo total de cuartos (valor actual: 5): Nuevo numero de cuartos disponibles (valor actual: 5): Nuevas amenidades separadas por coma (valor actual: wifi, gym): 
+[OK] Hotel actualizado correctamente.
+[INFO] Archivo actualizado: /home/jperez/Documents/Pruebas de Software Y aseguramiento de la calidad/TC4017.10_A01795188/6.2/source/input/hotels.jsonl
+
+Presiona Enter para continuar...
+=== Sistema de Reservaciones de Hotel ===
+1. Crear hotel
+2. Eliminar hotel
+3. Mostrar informacion de hotel
+4. Modificar informacion de hotel
+5. Crear cliente
+6. Eliminar cliente
+7. Mostrar informacion de cliente
+8. Modificar informacion de cliente
+9. Crear reservacion
+10. Cancelar reservacion
+11. Buscar reservacion
+0. Salir
+Selecciona una opcion: ID del hotel a consultar: 
+=============================================
+INFORMACION DEL HOTEL
+=============================================
+ID: HOT-d9abe14c
+Nombre: Hotel Visual
+Ubicacion: Calle Bonita, Col. Perrona, Monterrey
+Cuartos totales: 100
+Cuartos disponibles: 5
+Amenidades: wifi, gym
+=============================================
+
+Presiona Enter para continuar...
+=== Sistema de Reservaciones de Hotel ===
+1. Crear hotel
+2. Eliminar hotel
+3. Mostrar informacion de hotel
+4. Modificar informacion de hotel
+5. Crear cliente
+6. Eliminar cliente
+7. Mostrar informacion de cliente
+8. Modificar informacion de cliente
+9. Crear reservacion
+10. Cancelar reservacion
+11. Buscar reservacion
+0. Salir
+Selecciona una opcion: ID del cliente a consultar: 
+=============================================
+INFORMACION DEL CLIENTE
+=============================================
+ID: CUS-2557305d
+Nombre completo: Jose Manuel Perez
+Correo: jperezg86@gmail.com
+Telefono: 7293014624
+=============================================
+
+Presiona Enter para continuar...
+=== Sistema de Reservaciones de Hotel ===
+1. Crear hotel
+2. Eliminar hotel
+3. Mostrar informacion de hotel
+4. Modificar informacion de hotel
+5. Crear cliente
+6. Eliminar cliente
+7. Mostrar informacion de cliente
+8. Modificar informacion de cliente
+9. Crear reservacion
+10. Cancelar reservacion
+11. Buscar reservacion
+0. Salir
+Selecciona una opcion: ID del hotel a eliminar: 
+[OK] Hotel eliminado correctamente.
+[INFO] Archivo actualizado: /home/jperez/Documents/Pruebas de Software Y aseguramiento de la calidad/TC4017.10_A01795188/6.2/source/input/hotels.jsonl
+
+Presiona Enter para continuar...
+=== Sistema de Reservaciones de Hotel ===
+1. Crear hotel
+2. Eliminar hotel
+3. Mostrar informacion de hotel
+4. Modificar informacion de hotel
+5. Crear cliente
+6. Eliminar cliente
+7. Mostrar informacion de cliente
+8. Modificar informacion de cliente
+9. Crear reservacion
+10. Cancelar reservacion
+11. Buscar reservacion
+0. Salir
+Selecciona una opcion: ID del hotel a consultar: ERROR: hotel no encontrado: HOT-f4ec4edd
+
+Presiona Enter para continuar...
+=== Sistema de Reservaciones de Hotel ===
+1. Crear hotel
+2. Eliminar hotel
+3. Mostrar informacion de hotel
+4. Modificar informacion de hotel
+5. Crear cliente
+6. Eliminar cliente
+7. Mostrar informacion de cliente
+8. Modificar informacion de cliente
+9. Crear reservacion
+10. Cancelar reservacion
+11. Buscar reservacion
+0. Salir
+Selecciona una opcion: ID del cliente a modificar: [INFO] Deja en blanco los campos que no quieras cambiar.
+Nuevo nombre completo (nombre actual: Jose Manuel Perez): Nuevo correo electronico (correo actual: jperezg86@gmail.com): Nuevo telefono (telefono actual: 7293014624): 
+[OK] Cliente actualizado correctamente.
+[INFO] Archivo actualizado: /home/jperez/Documents/Pruebas de Software Y aseguramiento de la calidad/TC4017.10_A01795188/6.2/source/input/customers.jsonl
+
+Presiona Enter para continuar...
+=== Sistema de Reservaciones de Hotel ===
+1. Crear hotel
+2. Eliminar hotel
+3. Mostrar informacion de hotel
+4. Modificar informacion de hotel
+5. Crear cliente
+6. Eliminar cliente
+7. Mostrar informacion de cliente
+8. Modificar informacion de cliente
+9. Crear reservacion
+10. Cancelar reservacion
+11. Buscar reservacion
+0. Salir
+Selecciona una opcion: ID del cliente a consultar: 
+=============================================
+INFORMACION DEL CLIENTE
+=============================================
+ID: CUS-2557305d
+Nombre completo: Juanito Johns
+Correo: jperezg86@gmail.com
+Telefono: 7293014624
+=============================================
+
+Presiona Enter para continuar...
+=== Sistema de Reservaciones de Hotel ===
+1. Crear hotel
+2. Eliminar hotel
+3. Mostrar informacion de hotel
+4. Modificar informacion de hotel
+5. Crear cliente
+6. Eliminar cliente
+7. Mostrar informacion de cliente
+8. Modificar informacion de cliente
+9. Crear reservacion
+10. Cancelar reservacion
+11. Buscar reservacion
+0. Salir
+Selecciona una opcion: 
+Buscar por:
+1. Numero de reservacion
+2. Nombre del cliente
+Selecciona criterio: Numero de reservacion: 
+[OK] Reservacion encontrada.
+
+=============================================
+INFORMACION DE LA RESERVACION
+=============================================
+ID: RES-dbdd7f9b
+Cliente: CUS-2557305d
+Nombre cliente: Juanito Johns
+Hotel: HOT-d9abe14c
+Cantidad de cuartos: 1
+Estatus: cancelled
+=============================================
+
+Presiona Enter para continuar...
+============================================================
+Inicio de ejecucion: 2026-02-22T11:56:10
+---------------------------------------------
+[INFO] Directorio de datos: /home/jperez/Documents/Pruebas de Software Y aseguramiento de la calidad/TC4017.10_A01795188/6.2/source/input
+[INFO] Archivo de resultados: /home/jperez/Documents/Pruebas de Software Y aseguramiento de la calidad/TC4017.10_A01795188/6.2/result/HotelSystemResults.txt
+---------------------------------------------
+
+=== Sistema de Reservaciones de Hotel ===
+1. Crear hotel
+2. Eliminar hotel
+3. Mostrar informacion de hotel
+4. Modificar informacion de hotel
+5. Crear cliente
+6. Eliminar cliente
+7. Mostrar informacion de cliente
+8. Modificar informacion de cliente
+9. Crear reservacion
+10. Cancelar reservacion
+11. Buscar reservacion
+0. Salir
+Selecciona una opcion: 
+Buscar por:
+1. Numero de reservacion
+2. Nombre del cliente
+Selecciona criterio: Nombre del cliente: 
+[OK] Se encontraron 1 reservacion(es) para el criterio dado.
+
+=============================================
+INFORMACION DE LA RESERVACION
+=============================================
+ID: RES-dbdd7f9b
+Cliente: CUS-2557305d
+Nombre cliente: Juanito Johns
+Hotel: HOT-d9abe14c
+Cantidad de cuartos: 1
+Estatus: cancelled
+=============================================
+
+Presiona Enter para continuar...
+=== Sistema de Reservaciones de Hotel ===
+1. Crear hotel
+2. Eliminar hotel
+3. Mostrar informacion de hotel
+4. Modificar informacion de hotel
+5. Crear cliente
+6. Eliminar cliente
+7. Mostrar informacion de cliente
+8. Modificar informacion de cliente
+9. Crear reservacion
+10. Cancelar reservacion
+11. Buscar reservacion
+0. Salir
+Selecciona una opcion: ID del cliente: ID del hotel: Cantidad de cuartos a reservar: 
+[OK] Reservacion creada con exito.
+[INFO] ID asignado: RES-8f1f3c35
+[INFO] Archivo actualizado: /home/jperez/Documents/Pruebas de Software Y aseguramiento de la calidad/TC4017.10_A01795188/6.2/source/input/reservations.jsonl
+[INFO] Archivo actualizado: /home/jperez/Documents/Pruebas de Software Y aseguramiento de la calidad/TC4017.10_A01795188/6.2/source/input/hotels.jsonl
+
+=============================================
+INFORMACION DE LA RESERVACION
+=============================================
+ID: RES-8f1f3c35
+Cliente: CUS-2557305d
+Nombre cliente: N/A
+Hotel: HOT-d9abe14c
+Cantidad de cuartos: 1
+Estatus: active
+=============================================
+
+Presiona Enter para continuar...
+=== Sistema de Reservaciones de Hotel ===
+1. Crear hotel
+2. Eliminar hotel
+3. Mostrar informacion de hotel
+4. Modificar informacion de hotel
+5. Crear cliente
+6. Eliminar cliente
+7. Mostrar informacion de cliente
+8. Modificar informacion de cliente
+9. Crear reservacion
+10. Cancelar reservacion
+11. Buscar reservacion
+0. Salir
+Selecciona una opcion: 
+Buscar por:
+1. Numero de reservacion
+2. Nombre del cliente
+Selecciona criterio: Nombre del cliente: 
+[OK] Se encontraron 2 reservacion(es) para el criterio dado.
+
+=============================================
+INFORMACION DE LA RESERVACION
+=============================================
+ID: RES-dbdd7f9b
+Cliente: CUS-2557305d
+Nombre cliente: Juanito Johns
+Hotel: HOT-d9abe14c
+Cantidad de cuartos: 1
+Estatus: cancelled
+=============================================
+
+=============================================
+INFORMACION DE LA RESERVACION
+=============================================
+ID: RES-8f1f3c35
+Cliente: CUS-2557305d
+Nombre cliente: Juanito Johns
+Hotel: HOT-d9abe14c
+Cantidad de cuartos: 1
+Estatus: active
+=============================================
+
+Presiona Enter para continuar...
