@@ -1,2 +1,3 @@
 {"hotel_id": "HOT-f4ec4edd", "name": "Hotel las ramblas", "location": "Paseo cuahunanuac 114 Col, centro, Cuernavaca Morelos", "total_rooms": 3, "available_rooms": 3, "amenities": []}
 {"hotel_id": "HOT-2d155311", "name": "Hotel Ruta", "location": "CDMX", "total_rooms": 3, "available_rooms": 3, "amenities": ["wifi"]}
+{"hotel_id": "HOT-82dafccc", "name": "Hotel ID", "location": "MTY", "total_rooms": 2, "available_rooms": 2, "amenities": ["wifi"]}

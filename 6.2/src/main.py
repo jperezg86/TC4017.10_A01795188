@@ -100,7 +100,8 @@ def opcion_crear_hotel(sistema: HotelSystem) -> None:
     if hotel is None:
         print("No fue posible crear el hotel.")
         return
-    print(f"Hotel creado con exito: {hotel.hotel_id}")
+    print("Hotel creado con exito.")
+    print(f"ID asignado: {hotel.hotel_id}")
     print(f"Guardado en: {sistema.hotels_file}")
 
 
@@ -176,7 +177,8 @@ def opcion_crear_cliente(sistema: HotelSystem) -> None:
     if cliente is None:
         print("No fue posible crear el cliente.")
         return
-    print(f"Cliente creado con exito: {cliente.customer_id}")
+    print("Cliente creado con exito.")
+    print(f"ID asignado: {cliente.customer_id}")
     print(f"Guardado en: {sistema.customers_file}")
 
 
@@ -235,7 +237,8 @@ def opcion_crear_reservacion(sistema: HotelSystem) -> None:
     if reservacion is None:
         print("No fue posible crear la reservacion.")
         return
-    print(f"Reservacion creada con exito: {reservacion.reservation_id}")
+    print("Reservacion creada con exito.")
+    print(f"ID asignado: {reservacion.reservation_id}")
     print(f"Archivo actualizado: {sistema.reservations_file}")
     print(f"Archivo actualizado: {sistema.hotels_file}")
 
