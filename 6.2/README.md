@@ -41,6 +41,11 @@ cd 6.2
 python3 -m src.main --data-dir source/input
 ```
 
+Salida de ejecución:
+
+- La salida en consola también se guarda en `6.2/result/HotelSystemResults.txt`
+- Cada ejecución agrega una nueva sección con marca de tiempo
+
 ## Ejecutar pruebas unitarias
 
 ```bash

@@ -1,0 +1,19 @@
+
+============================================================
+Inicio de ejecucion: 2026-02-22T10:31:34
+Directorio de datos: /home/jperez/Documents/Pruebas de Software Y aseguramiento de la calidad/TC4017.10_A01795188/6.2/source/input
+Archivo de resultados: /home/jperez/Documents/Pruebas de Software Y aseguramiento de la calidad/TC4017.10_A01795188/6.2/result/HotelSystemResults.txt
+
+=== Sistema de Reservaciones de Hotel ===
+1. Crear hotel
+2. Eliminar hotel
+3. Mostrar informacion de hotel
+4. Modificar informacion de hotel
+5. Crear cliente
+6. Eliminar cliente
+7. Mostrar informacion de cliente
+8. Modificar informacion de cliente
+9. Crear reservacion
+10. Cancelar reservacion
+0. Salir
+Selecciona una opcion: Saliendo del sistema. Hasta luego.

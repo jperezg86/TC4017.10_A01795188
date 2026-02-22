@@ -3,9 +3,38 @@
 from __future__ import annotations
 
 import argparse
+import datetime
+import sys
 from pathlib import Path
 
 from src.hotel_system import HotelSystem
+
+
+RESULT_FILE = (
+    Path(__file__).resolve().parents[1]
+    / "result"
+    / "HotelSystemResults.txt"
+)
+
+
+class FlujoDuplicado:
+    """Replica la salida a consola y a un archivo de resultados."""
+
+    def __init__(self, consola, archivo) -> None:
+        """Inicializa destino principal y secundario de salida."""
+        self.consola = consola
+        self.archivo = archivo
+
+    def write(self, mensaje: str) -> int:
+        """Escribe en ambos destinos."""
+        self.consola.write(mensaje)
+        self.archivo.write(mensaje)
+        return len(mensaje)
+
+    def flush(self) -> None:
+        """Fuerza el vaciado del buffer en ambos destinos."""
+        self.consola.flush()
+        self.archivo.flush()
 
 
 def parse_args() -> argparse.Namespace:
@@ -247,8 +276,29 @@ def main() -> int:
     args = parse_args()
     args.data_dir.mkdir(parents=True, exist_ok=True)
     sistema = HotelSystem(data_dir=args.data_dir)
-    print(f"Directorio de datos: {args.data_dir}")
-    ejecutar_menu(sistema)
+    RESULT_FILE.parent.mkdir(parents=True, exist_ok=True)
+
+    with RESULT_FILE.open("a", encoding="utf-8") as salida:
+        salida.write("\n" + "=" * 60 + "\n")
+        salida.write(
+            "Inicio de ejecucion: "
+            f"{datetime.datetime.now().isoformat(timespec='seconds')}\n"
+        )
+
+        salida_duplicada = FlujoDuplicado(sys.stdout, salida)
+        error_duplicado = FlujoDuplicado(sys.stderr, salida)
+        original_stdout = sys.stdout
+        original_stderr = sys.stderr
+        sys.stdout = salida_duplicada
+        sys.stderr = error_duplicado
+        try:
+            print(f"Directorio de datos: {args.data_dir}")
+            print(f"Archivo de resultados: {RESULT_FILE}")
+            ejecutar_menu(sistema)
+        finally:
+            sys.stdout = original_stdout
+            sys.stderr = original_stderr
+
     return 0
 
 
