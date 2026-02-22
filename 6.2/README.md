@@ -74,3 +74,7 @@ pylint 6.2/src/*.py 6.2/test/*.py
 Se incluye una grabación de la ejecución del sistema en:
 
 - [`result/screenrecord/evidencia_practica_6.2.mp4`](result/screenrecord/evidencia_practica_6.2.mp4)
+
+Vista previa (clic para abrir el video):
+
+[![Vista previa del video](result/screenrecord/miniatura_evidencia_6.2.png)](result/screenrecord/evidencia_practica_6.2.mp4)
