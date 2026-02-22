@@ -197,18 +197,30 @@ def opcion_mostrar_hotel(sistema: HotelSystem) -> None:
 def opcion_modificar_hotel(sistema: HotelSystem) -> None:
     """Solicita cambios y modifica un hotel."""
     hotel_id = input("ID del hotel a modificar: ").strip()
+    actual = sistema.display_hotel_information(hotel_id)
+    if actual is None:
+        mostrar_error("No existe un hotel con ese ID.")
+        return
+
     mostrar_info("Deja en blanco los campos que no quieras cambiar.")
 
     cambios: dict[str, object] = {}
-    nombre = input("Nuevo nombre: ").strip()
+    nombre = input(
+        f"Nuevo nombre (valor actual: {actual.get('name', 'N/A')}): "
+    ).strip()
     if nombre:
         cambios["name"] = nombre
 
-    ubicacion = input("Nueva ubicacion: ").strip()
+    ubicacion = input(
+        f"Nueva ubicacion (valor actual: {actual.get('location', 'N/A')}): "
+    ).strip()
     if ubicacion:
         cambios["location"] = ubicacion
 
-    total_cuartos = input("Nuevo total de cuartos: ").strip()
+    total_cuartos = input(
+        "Nuevo total de cuartos "
+        f"(valor actual: {actual.get('total_rooms', 'N/A')}): "
+    ).strip()
     if total_cuartos:
         try:
             cambios["total_rooms"] = int(total_cuartos)
@@ -216,7 +228,10 @@ def opcion_modificar_hotel(sistema: HotelSystem) -> None:
             mostrar_error("Total de cuartos invalido.")
             return
 
-    disponibles = input("Nuevo numero de cuartos disponibles: ").strip()
+    disponibles = input(
+        "Nuevo numero de cuartos disponibles "
+        f"(valor actual: {actual.get('available_rooms', 'N/A')}): "
+    ).strip()
     if disponibles:
         try:
             cambios["available_rooms"] = int(disponibles)
@@ -224,7 +239,17 @@ def opcion_modificar_hotel(sistema: HotelSystem) -> None:
             mostrar_error("Cuartos disponibles invalido.")
             return
 
-    amenidades = input("Nuevas amenidades separadas por coma: ").strip()
+    amenidades_actuales = actual.get("amenities", [])
+    if isinstance(amenidades_actuales, list):
+        amenidades_actuales_txt = ", ".join(
+            str(item) for item in amenidades_actuales
+        )
+    else:
+        amenidades_actuales_txt = "N/A"
+    amenidades = input(
+        "Nuevas amenidades separadas por coma "
+        f"(valor actual: {amenidades_actuales_txt}): "
+    ).strip()
     if amenidades:
         cambios["amenities"] = [
             item.strip() for item in amenidades.split(",") if item.strip()
@@ -278,18 +303,31 @@ def opcion_mostrar_cliente(sistema: HotelSystem) -> None:
 def opcion_modificar_cliente(sistema: HotelSystem) -> None:
     """Solicita cambios y modifica un cliente."""
     customer_id = input("ID del cliente a modificar: ").strip()
+    actual = sistema.display_customer_information(customer_id)
+    if actual is None:
+        mostrar_error("No existe un cliente con ese ID.")
+        return
+
     mostrar_info("Deja en blanco los campos que no quieras cambiar.")
 
     cambios: dict[str, object] = {}
-    nombre = input("Nuevo nombre completo: ").strip()
+    nombre = input(
+        "Nuevo nombre completo "
+        f"(valor actual: {actual.get('full_name', 'N/A')}): "
+    ).strip()
     if nombre:
         cambios["full_name"] = nombre
 
-    correo = input("Nuevo correo electronico: ").strip()
+    correo = input(
+        "Nuevo correo electronico "
+        f"(valor actual: {actual.get('email', 'N/A')}): "
+    ).strip()
     if correo:
         cambios["email"] = correo
 
-    telefono = input("Nuevo telefono: ").strip()
+    telefono = input(
+        f"Nuevo telefono (valor actual: {actual.get('phone', 'N/A')}): "
+    ).strip()
     if telefono:
         cambios["phone"] = telefono
 
