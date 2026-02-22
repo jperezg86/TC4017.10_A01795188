@@ -69,6 +69,8 @@ flake8 6.2/src 6.2/test
 pylint 6.2/src/*.py 6.2/test/*.py
 ```
 
-### Importante
+## Evidencia en video
 
-La evidencia documentada de ejecución está en result/screenrecord, es un video mp4 donde pueden ver la ejecución del programa.
+Se incluye una grabación de la ejecución del sistema en:
+
+- [`result/screenrecord/evidencia_practica_6.2.mp4`](result/screenrecord/evidencia_practica_6.2.mp4)
