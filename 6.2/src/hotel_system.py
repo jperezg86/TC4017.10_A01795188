@@ -365,3 +365,60 @@ class HotelSystem:
         self._save_hotels(hotels)
         self._save_reservations(reservations)
         return True
+
+    def display_reservation_information(
+        self,
+        reservation_id: str,
+    ) -> dict[str, object] | None:
+        """Devuelve información de una reservación por identificador."""
+        customers = self._load_customers()
+        customer_lookup = {
+            customer.customer_id: customer.full_name
+            for customer in customers
+        }
+
+        for reservation in self._load_reservations():
+            if reservation.reservation_id == reservation_id:
+                payload = reservation.to_dict()
+                payload["customer_name"] = customer_lookup.get(
+                    reservation.customer_id,
+                    "Cliente no encontrado",
+                )
+                return payload
+        print(f"ERROR: reservación no encontrada: {reservation_id}")
+        return None
+
+    def search_reservations_by_name(
+        self,
+        customer_name: str,
+    ) -> list[dict[str, object]]:
+        """Busca reservaciones por nombre de cliente."""
+        normalized_name = customer_name.strip().lower()
+        if not normalized_name:
+            print("ERROR: el nombre de cliente no puede estar vacío")
+            return []
+
+        customers = self._load_customers()
+        matching_customer_ids = {
+            customer.customer_id: customer.full_name
+            for customer in customers
+            if normalized_name in customer.full_name.strip().lower()
+        }
+        if not matching_customer_ids:
+            print(f"ERROR: cliente no encontrado por nombre: {customer_name}")
+            return []
+
+        results: list[dict[str, object]] = []
+        for reservation in self._load_reservations():
+            if reservation.customer_id not in matching_customer_ids:
+                continue
+            payload = reservation.to_dict()
+            payload["customer_name"] = matching_customer_ids[
+                reservation.customer_id
+            ]
+            results.append(payload)
+
+        if not results:
+            print("ERROR: no hay reservaciones para cliente(s) que coincidan")
+            print(f"con '{customer_name}'")
+        return results

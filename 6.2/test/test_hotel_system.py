@@ -276,6 +276,66 @@ class TestHotelSystem(unittest.TestCase):
         )
         self.assertIsNone(customer)
 
+    def test_display_reservation_info(self) -> None:
+        """Recupera una reservación por su identificador."""
+        hotel = self.system.create_hotel(
+            name="Hotel Busqueda",
+            location="Monterrey",
+            total_rooms=9,
+        )
+        customer = self.system.create_customer(
+            full_name="Sofia Lopez",
+            email="sofia@example.com",
+            phone="8999999999",
+        )
+        assert hotel is not None
+        assert customer is not None
+
+        reservation = self.system.create_reservation(
+            customer.customer_id,
+            hotel.hotel_id,
+            2,
+        )
+        assert reservation is not None
+
+        payload = self.system.display_reservation_information(
+            reservation.reservation_id
+        )
+        self.assertIsNotNone(payload)
+        assert payload is not None
+        self.assertEqual(payload["reservation_id"], reservation.reservation_id)
+        self.assertEqual(payload["customer_name"], "Sofia Lopez")
+
+    def test_search_reserve_name(self) -> None:
+        """Busca reservaciones por coincidencia de nombre de cliente."""
+        hotel = self.system.create_hotel(
+            name="Hotel Nombre",
+            location="Guadalajara",
+            total_rooms=12,
+        )
+        customer = self.system.create_customer(
+            full_name="Roberto Martinez",
+            email="roberto@example.com",
+            phone="8000000000",
+        )
+        assert hotel is not None
+        assert customer is not None
+
+        reservation = self.system.create_reservation(
+            customer.customer_id,
+            hotel.hotel_id,
+            1,
+        )
+        assert reservation is not None
+
+        matches = self.system.search_reservations_by_name("roberto")
+        self.assertEqual(len(matches), 1)
+        self.assertEqual(
+            matches[0]["reservation_id"],
+            reservation.reservation_id,
+        )
+        self.assertEqual(matches[0]["customer_name"], "Roberto Martinez")
+
 
 if __name__ == "__main__":
     unittest.main()

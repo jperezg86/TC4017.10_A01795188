@@ -97,6 +97,7 @@ def mostrar_menu() -> None:
     print("8. Modificar informacion de cliente")
     print("9. Crear reservacion")
     print("10. Cancelar reservacion")
+    print("11. Buscar reservacion")
     print("0. Salir")
 
 
@@ -144,6 +145,7 @@ def mostrar_reservacion_bonita(data: dict[str, object]) -> None:
     print("=" * 45)
     print(f"ID: {data.get('reservation_id', 'N/A')}")
     print(f"Cliente: {data.get('customer_id', 'N/A')}")
+    print(f"Nombre cliente: {data.get('customer_name', 'N/A')}")
     print(f"Hotel: {data.get('hotel_id', 'N/A')}")
     print(f"Cantidad de cuartos: {data.get('room_count', 'N/A')}")
     print(f"Estatus: {data.get('status', 'N/A')}")
@@ -372,6 +374,41 @@ def opcion_cancelar_reservacion(sistema: HotelSystem) -> None:
     mostrar_error("No se pudo cancelar la reservacion.")
 
 
+def opcion_buscar_reservacion(sistema: HotelSystem) -> None:
+    """Busca reservaciones por ID o por nombre del cliente."""
+    print("\nBuscar por:")
+    print("1. Numero de reservacion")
+    print("2. Nombre del cliente")
+    criterio = input("Selecciona criterio: ").strip()
+
+    if criterio == "1":
+        reservation_id = input("Numero de reservacion: ").strip()
+        data = sistema.display_reservation_information(reservation_id)
+        if data is None:
+            mostrar_error("No se encontro la reservacion solicitada.")
+            return
+        mostrar_exito("Reservacion encontrada.")
+        mostrar_reservacion_bonita(data)
+        return
+
+    if criterio == "2":
+        customer_name = input("Nombre del cliente: ").strip()
+        results = sistema.search_reservations_by_name(customer_name)
+        if not results:
+            mostrar_error("No se encontraron reservaciones para ese nombre.")
+            return
+
+        mostrar_exito(
+            "Se encontraron "
+            f"{len(results)} reservacion(es) para el criterio dado."
+        )
+        for result in results:
+            mostrar_reservacion_bonita(result)
+        return
+
+    mostrar_error("Criterio invalido.")
+
+
 def ejecutar_menu(sistema: HotelSystem) -> None:
     """Ejecuta el ciclo principal del menu interactivo."""
     acciones = {
@@ -385,6 +422,7 @@ def ejecutar_menu(sistema: HotelSystem) -> None:
         "8": opcion_modificar_cliente,
         "9": opcion_crear_reservacion,
         "10": opcion_cancelar_reservacion,
+        "11": opcion_buscar_reservacion,
     }
 
     while True:
